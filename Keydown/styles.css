@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Asap:wght@400;500;700&family=Estonia&family=Poppins:wght@100;400&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: #1897b0;
+  font-family: "Poppins";
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.alert {
+  font-size: 40px;
+  color: #1897b0;
+  background: white;
+  border-radius: 12px;
+  padding: 10px 40px;
+  border: none;
+  outline: none;
+  font-weight: 600px;
+}
+
+.box .result {
+  height: 250px;
+  width: 250px;
+  border: 7px solid white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 70px;
+  font-weight: 600px;
+  margin: auto;
+  margin-bottom: 60px;
+}
+
+.card {
+  width: 300px;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 20px;
+}
+
+.card p {
+  padding: 10px;
+  text-align: center;
+  color: black;
+  font-size: 20px;
+}
+
+.card p:first-child {
+  background: #67aeb7;
+  color: white;
+}
+
+.detail {
+  display: flex;
+}
+
+.hide {
+  display: none;
+}
