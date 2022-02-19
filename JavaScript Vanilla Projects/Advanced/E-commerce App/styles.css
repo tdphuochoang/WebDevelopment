@@ -1,0 +1,807 @@
+@import url("https://fonts.googleapis.com/css2?family=Asap:wght@400;500;700&family=Estonia&family=Poppins:wght@100;400&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap");
+
+/*Variables*/
+:root {
+  --main-color: #222;
+  --second-color: #465b52;
+  --lightblue: #59bad8;
+  --transition: 0.5s ease;
+}
+
+/*Global styles*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+}
+
+h1 {
+  font-size: 50px;
+  line-height: 64px;
+  color: var(--main-color);
+}
+
+h2 {
+  font-size: 46px;
+  line-height: 54px;
+  color: var(--main-color);
+}
+
+h4 {
+  font-size: 20px;
+  color: var(--main-color);
+}
+
+h6 {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+p {
+  font-size: 16px;
+  color: var(--second-color);
+  margin: 15px 0 20px 0;
+}
+
+.section-p1 {
+  padding: 40px 80px;
+}
+
+.section-m1 {
+  margin: 40px 0;
+}
+
+#header a {
+  text-decoration: none;
+}
+
+Logo {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  font-family: "Moon Dance", cursive;
+  border: 2px solid black;
+  padding: 0 20px;
+  border-radius: 5px;
+  color: black;
+  top: 0;
+  left: 0;
+}
+
+button.normal {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 15px 30px;
+  color: black;
+  background-color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: 0.5s;
+}
+
+button.white {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 11px 18px;
+  color: white;
+  background-color: transparent;
+  cursor: pointer;
+  border: 1px solid white;
+  outline: none;
+  transition: 0.5s;
+}
+
+body {
+  width: 100%;
+}
+
+/*Header styles*/
+#header {
+  padding: 20px 80px;
+  background: linear-gradient(to right, #e8c9a9, #eed6be);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  z-index: 999;
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+
+#navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+
+#navbar li {
+  list-style: none;
+  padding: 0 10px;
+  position: relative;
+}
+
+#navbar li a {
+  margin: 20px;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  color: #5b5e68;
+  transition: var(--transition);
+}
+
+#navbar li a:hover,
+#navbar li a.active {
+  color: #35807c;
+}
+
+#navbar li a.active::after,
+#navbar li a:hover::after {
+  content: "";
+  width: 25%;
+  height: 2px;
+  background: #35807c;
+  position: absolute;
+  bottom: -4px;
+  left: 30px;
+}
+
+#mobile {
+  display: none;
+  align-items: center;
+}
+
+#close {
+  display: none;
+}
+
+/*Intro Part Styles*/
+
+#hero {
+  background: url("/image/Home\ -\ background\ image.jpg");
+  height: 90vh;
+  width: 100%;
+  background-size: cover;
+  padding: 0 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+#hero h4 {
+  padding-bottom: 15px;
+}
+
+#hero h1 {
+  color: var(--second-color);
+}
+
+#hero button {
+  color: white;
+  padding: 9px 20px;
+  margin-left: 70px;
+  background: #1b1b1b;
+  border-radius: 3px;
+  width: 140px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 350;
+}
+
+/*Feature Styles*/
+
+#feature {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.feature-container img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 15px;
+}
+
+#feature .feature-container {
+  width: 180px;
+  text-align: center;
+  padding: 25px 15px;
+  margin: 15px 0;
+  box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgb(216, 197, 197);
+  border-radius: 5px;
+}
+
+#feature .feature-container:hover {
+  box-shadow: 10px 10px 54px rgba(88, 32, 32, 0.05);
+  cursor: pointer;
+}
+
+#feature .feature-container h6 {
+  display: inline-block;
+  padding: 9px 8px 6px 8px;
+  line-height: 1;
+  border-radius: 4px;
+  color: var(--feature-text);
+  /*background-color: #93c6c0;*/
+}
+
+#feature .feature-container:nth-child(2) h6 {
+  /*background-color: #e94d1a;*/
+}
+
+#feature .feature-container:nth-child(3) h6 {
+  /*background-color: #00efd1;*/
+}
+
+#feature .feature-container:nth-child(4) h6 {
+  /* background-color: #ffcc00;*/
+}
+
+#feature .feature-container:nth-child(5) h6 {
+  /*background-color: #dec8fc;*/
+}
+
+#feature .feature-container:nth-child(6) h6 {
+  /*background-color: #2b79c1;*/
+}
+
+/*Feature Product Styles*/
+
+#product1 {
+  text-align: center;
+}
+
+#product1 .product-container {
+  width: 22%;
+  min-width: 200px;
+  padding: 10px 12px;
+  box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgb(216, 197, 197);
+  border-radius: 25px;
+  cursor: pointer;
+  margin: 10px 0.5px;
+  transition: var(--transition);
+  position: relative;
+}
+
+#product1 .product-container:hover {
+  box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.07);
+}
+
+#product1 .product-container img {
+  width: 100%;
+  border-radius: 15px;
+}
+
+#product1 .product-container .desc-container {
+  text-align: start;
+  padding: 10px 0;
+}
+
+#product1 .product-container .desc-container span {
+  color: lightgrey;
+  font-size: 13px;
+}
+
+#product1 .product-container .desc-container h4 {
+  padding-top: 7px;
+  color: black;
+  font-size: 19px;
+}
+
+.desc-container .star {
+  margin: 5px 0;
+}
+
+.desc-container .star i {
+  font-size: 12px;
+  color: gold;
+}
+
+#product1 .product-container .desc-container #price {
+  padding-top: 4px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--second-color);
+}
+
+#product1 .product-container .cart {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50px;
+  background-color: #baddce;
+  color: var(--second-color);
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  transition: 0.5s;
+}
+
+#product1 .product-container .cart:hover {
+  background-color: #80a394;
+}
+
+#product1 .all-product-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/*Banner Styles*/
+
+#banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-image: url("/image/Home\ -\ banner.jpg");
+  width: 100%;
+  height: 40vh;
+  background-size: cover;
+  background-position: center;
+}
+
+#banner h4 {
+  color: white;
+  font-size: 16px;
+}
+
+#banner h2 {
+  color: white;
+  font-size: 30px;
+  padding: 10px 0;
+}
+
+#banner h2 span {
+  color: red;
+}
+
+#banner button:hover {
+  color: whitesmoke;
+  background-color: var(--lightblue);
+}
+
+#sm-banner {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 50px 150px;
+}
+
+#sm-banner .banner-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 30px;
+  background-image: url("/image/sm-banner-images/summer-outfit.png");
+  min-width: 580px;
+  height: 50vh;
+  background-size: cover;
+  background-position: center;
+}
+
+#sm-banner h4 {
+  color: white;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+#sm-banner h2 {
+  color: white;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+#sm-banner span {
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  padding-bottom: 15px;
+}
+
+#sm-banner .banner-container:hover button {
+  background: var(--second-color);
+  border: 1px solid var(--second-color);
+}
+
+#sm-banner .winter-col {
+  background-image: url("/image/sm-banner-images/winter\ collection.jpeg");
+}
+
+#banner3 {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 100px;
+}
+
+#banner3 .banner-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 30px;
+  background-image: url("/image/sm-banner-images/summer-sale.jpg");
+  min-width: 30%;
+  height: 30vh;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 20px;
+}
+
+#banner3 h2 {
+  color: white;
+  font-weight: 900;
+  font-size: 22px;
+}
+
+#banner3 h3 {
+  color: rgba(255, 166, 0, 0.733);
+  font-weight: 800;
+  font-size: 15px;
+}
+
+#banner3 .banner-container2 {
+  background-image: url("/image/sm-banner-images/fashion-accessories.jpg");
+}
+
+#banner3 .banner-container3 {
+  background-image: url("/image/sm-banner-images/floral-dress.jpg");
+}
+
+/*Newletter Styles */
+
+#newsletter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-image: url("/image/sm-banner-images/newsletter-background.png");
+  width: 100%;
+  height: 30vh;
+  background-size: cover;
+  background-position: center;
+}
+
+#newsletter h4 {
+  font-size: 22px;
+  font-weight: 700;
+  color: white;
+}
+
+#newsletter p {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(228, 212, 212);
+}
+
+#newsletter span {
+  color: orange;
+}
+
+#newsletter .form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#newsletter .form input {
+  height: 30px;
+  width: 500px;
+  font-size: 13px;
+  padding: 0 10px;
+  border: 1px solid transparent;
+  outline: none;
+}
+
+#newsletter .form button {
+  color: rgb(43, 42, 42);
+
+  background: whitesmoke;
+  border-radius: 3px;
+  width: 140px;
+  height: 33px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 700;
+  transition: 0.5s;
+}
+
+#newsletter .form button:hover {
+  background: var(--second-color);
+  color: white;
+}
+
+/*Footer Styles*/
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+footer .col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.foo-logo {
+  margin-bottom: 20px;
+  text-decoration: none;
+}
+
+footer h4 {
+  font-size: 15px;
+  padding-bottom: 10px;
+}
+
+footer p {
+  font-size: 13px;
+  margin: 0 0 8px 0;
+}
+
+footer a:not([foo-logo]) {
+  font-size: 13px;
+  text-decoration: none;
+  color: black;
+  margin-bottom: 10px;
+  transition: 0.3s;
+}
+
+footer .follow {
+  margin-top: 20px;
+}
+
+footer .follow i {
+  padding-right: 4px;
+  color: var(--main-color);
+  cursor: pointer;
+  transition: 0.5s;
+  font-size: 18px;
+}
+
+footer .install {
+  width: 20%;
+}
+
+footer .install .row {
+  font-size: 28px;
+  margin-bottom: 5px;
+}
+
+footer .install .row i {
+  margin: 0 10px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+footer i:hover,
+footer a:hover {
+  color: orange;
+}
+
+footer .payment-container {
+  margin-top: 5px;
+  display: flex;
+}
+
+footer .payment-container img {
+  width: 26%;
+  height: 28%;
+  margin-right: 2px;
+  cursor: pointer;
+}
+
+footer .copyright {
+  width: 100%;
+  text-align: center;
+}
+
+/*==========Responsive Tablet Design=======================*/
+
+/*Navbar styles*/
+@media (max-width: 799px) {
+  .section-p1 {
+    padding: 40px 40px;
+  }
+  #navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    list-style: none;
+    position: fixed;
+    top: 0;
+    right: -300px;
+    height: 100vh;
+    width: 300px;
+    background: #fcecdb;
+    box-shadow: 0 40px 60px rgba(0, 0, 0, 0.2);
+    padding: 85px 0 0 11px;
+    transition: 0.3s;
+  }
+
+  #navbar.active {
+    right: 0px;
+  }
+
+  #navbar li {
+    margin-bottom: 25px;
+  }
+
+  #mobile {
+    display: flex;
+    align-items: center;
+  }
+
+  #mobile i {
+    color: rgb(32, 31, 31);
+    font-size: 24px;
+    padding-left: 20px;
+  }
+
+  #close {
+    display: initial;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    color: black;
+    font-size: 24px;
+  }
+
+  #lg-bag {
+    display: none;
+  }
+
+  /*Hero Styles*/
+  #hero {
+    height: 90vh;
+
+    padding: 0 80px;
+    background-position: top 30% right 30%;
+  }
+
+  /*Feature Style*/
+
+  #feature {
+    justify-content: center;
+  }
+
+  #feature .feature-container {
+    margin: 15px 15px;
+  }
+
+  /*Product1 styles*/
+
+  #product1 .all-product-container {
+    justify-content: center;
+  }
+
+  #product1 .product-container {
+    margin: 15px;
+  }
+
+  /*Banner styles*/
+  #banner {
+    height: 20vh;
+  }
+
+  /*Sm-banner styles*/
+
+  #sm-banner {
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0px 40px;
+  }
+  #sm-banner .banner-container {
+    min-width: 100%;
+    height: 30vh;
+  }
+
+  #banner3 {
+    padding: 0 40px;
+  }
+
+  #banner3 .banner-container {
+    width: 28%;
+  }
+
+  /*Newsletter styles*/
+  #newsletter {
+    height: 22vh;
+  }
+}
+
+/*=================Iphone X Reponsive Design=====================*/
+
+@media (max-width: 477px) {
+  .section-p1 {
+    padding: 20px;
+  }
+  #header {
+    padding: 10px 30px;
+  }
+
+  h1 {
+    font-size: 38px;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+
+  #hero {
+    padding: 0 20px;
+    background-position: 55%;
+  }
+
+  #feature {
+    justify-content: space-between;
+  }
+
+  #feature .feature-container {
+    width: 155px;
+
+    margin: 0 0 15px 0;
+  }
+
+  #product1 .product-container {
+    width: 100%;
+  }
+
+  #banner {
+    height: 40vh;
+  }
+
+  #sm-banner .banner-container {
+    height: 40vh;
+  }
+
+  #sm-banner .winter-col {
+    margin: 20px 0;
+  }
+
+  #banner3 {
+    padding: 0 40px;
+  }
+
+  #banner3 .banner-container {
+    width: 100%;
+  }
+
+  #newsletter {
+    padding: 30px 20px;
+  }
+
+  #newsletter .form {
+    width: 95%;
+  }
+
+  footer .copyright {
+    text-align: start;
+  }
+
+  footer .payment-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  footer .payment-container img {
+    width: 35%;
+    height: 35%;
+    margin-right: 10px;
+  }
+}
