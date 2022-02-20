@@ -15,6 +15,7 @@ async function changeWeatherUI(capitalSearch) {
   let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${capitalSearch}&appid=df251fa8221ab12093383129a1dc2134`;
 
   let data = await fetch(apiURL).then((res) => res.json());
+  console.log(data);
 
   if (data.cod == 200) {
     content.classList.remove("hide");
