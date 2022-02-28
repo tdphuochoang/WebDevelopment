@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(to right, #3e5151, #decba4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.counter {
+  padding: 20px 40px;
+  border-radius: 10px;
+  font-size: 40px;
+  color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  margin: 0 20px;
+}
+
+.counter h1 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.facebook {
+  background: linear-gradient(120deg, #3b5998, #ffffff);
+}
+
+.youtube {
+  background: linear-gradient(120deg, #770101, #ff0000);
+}
+
+.instagram {
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+}
