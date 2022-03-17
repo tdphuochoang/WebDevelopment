@@ -77,8 +77,12 @@ const DetailWrapper = styled.div`
     margin-bottom: 2rem;
   }
 
+  h3 {
+    font-size: 15px;
+  }
+
   li {
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     line-height: 2.5rem;
   }
 
@@ -98,7 +102,7 @@ const Button = styled.button`
 `;
 
 const Info = styled.div`
-  margin-left: 10rem;
+  margin-left: 4rem;
 `;
 
 export default Recipe;
