@@ -4,10 +4,10 @@ export const SliderData = [
     price: "$5.600.000",
     path: "/homes",
     label: "View Home",
-
     image:
-      "https://images.unsplash.com/photo-1613013261832-a5d86dba9421?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80",
-    alt: "Luxury penthouse",
+      "https://images.pexels.com/photos/4946918/pexels-photo-4946918.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    /*image:
+      "https://images.unsplash.com/photo-1613013261832-a5d86dba9421?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" alt: "Luxury penthouse"*/
   },
   {
     title: "NPL. Penthouse By Olga Akulova Design",
