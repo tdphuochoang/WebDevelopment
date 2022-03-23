@@ -8,11 +8,24 @@ const Listings = ({ listings }) => {
     <Section>
       <Container>
         <Heading>
-          <h1>View our latest villas</h1>
+          <h1
+            data-aos="fade-right"
+            data-aos-duration="1000"
+            data-aos-once="true"
+            data-aos-anchor-placement="center bottom"
+          >
+            View our latest villas
+          </h1>
         </Heading>
         <InfoRow>
           {listings.map((listing, index) => (
-            <InfoWrap key={index}>
+            <InfoWrap
+              data-aos="zoom-out-up"
+              data-aos-duration="1200"
+              data-aos-once="true"
+              data-aos-anchor-placement="center bottom"
+              key={index}
+            >
               <Image
                 src={listing.image}
                 alt={listing.alt}

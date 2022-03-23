@@ -8,7 +8,13 @@ const Features = () => {
       <Container>
         <Wrapper>
           <ColumnLeft>
-            <Content>
+            <Content
+              data-aos="fade-right"
+              data-aos-duration="1200"
+              data-aos-delay="300"
+              data-aos-once="true"
+              data-aos-anchor-placement="center bottom"
+            >
               <h1>Stunnung Interior</h1>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -20,7 +26,13 @@ const Features = () => {
             </Content>
           </ColumnLeft>
           <ColumnRight>
-            <Image src="https://images.pexels.com/photos/7061421/pexels-photo-7061421.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            <Image
+              src="https://images.pexels.com/photos/7061421/pexels-photo-7061421.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              data-aos="fade-left"
+              data-aos-duration="1200"
+              data-aos-once="true"
+              data-aos-anchor-placement="center bottom"
+            />
           </ColumnRight>
         </Wrapper>
       </Container>
