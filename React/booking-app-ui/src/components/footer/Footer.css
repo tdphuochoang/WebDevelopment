@@ -1,0 +1,51 @@
+.footer {
+  width: 100%;
+  width: 1024px;
+  font-size: 12px;
+}
+
+.fLists {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
+.fList {
+  list-style: none;
+  padding: 0;
+}
+
+.fListItem {
+  margin-bottom: 10px;
+  color: #003580;
+  cursor: pointer;
+}
+
+.fListItem:hover {
+  color: rgb(169, 117, 21);
+}
+
+.extranet-login {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0071c2;
+  cursor: pointer;
+}
+
+.extranet-login > p {
+  width: 105px;
+}
+
+.extranet-login > p:hover {
+  color: rgb(169, 117, 21);
+}
+
+.fText {
+  margin: 20px 0px 35px 0px;
+}

@@ -6,6 +6,8 @@ import { PropertyListData } from "../../data/PropertyListData";
 import PropertyList from "../../components/propertyList/PropertyList";
 import FeaturedProperties from "../../components/featuredProperties/FeaturedProperties";
 import { FeaturedPropertiesData } from "../../data/FeaturedPropertiesData";
+import MailList from "../../components/mailList/MailList";
+import Footer from "../../components/footer/Footer";
 
 const Home = () => {
   return (
@@ -21,6 +23,8 @@ const Home = () => {
           apartments, and more
         </h1>
         <FeaturedProperties listings={FeaturedPropertiesData} />
+        <MailList />
+        <Footer />
       </div>
     </div>
   );

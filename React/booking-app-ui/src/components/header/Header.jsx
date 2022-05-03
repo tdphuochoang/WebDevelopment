@@ -48,7 +48,7 @@ const Header = ({ type }) => {
         }
       >
         <div className="headerList">
-          <div className="headerListItem">
+          <div className="headerListItem active">
             <FontAwesomeIcon icon={faBed} />
             <span>Stays</span>
           </div>
@@ -184,7 +184,7 @@ const Header = ({ type }) => {
                 )}
               </div>
               <div className="headerSearchItem">
-                <button className="headerBtn">Search</button>
+                <button className="headerBtn searchBtn">Search</button>
               </div>
             </div>
           </>
