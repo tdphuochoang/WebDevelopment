@@ -18,6 +18,7 @@
   border-radius: 10px;
   position: sticky;
   top: 10px;
+  height: max-content;
 }
 
 .lsTitle {
@@ -80,4 +81,8 @@
 
 .listResult {
   flex: 3;
+}
+
+.hide {
+  display: none;
 }

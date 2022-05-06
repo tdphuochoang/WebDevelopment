@@ -7,6 +7,8 @@ import { format } from "date-fns";
 import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
+import SearchItem from "../../components/searchItem/SearchItem";
+import { SearchItemData } from "../../data/SearchItemData";
 
 const List = () => {
   const location = useLocation();
@@ -87,7 +89,11 @@ const List = () => {
             </div>
             <button>Search</button>
           </div>
-          <div className="listResult"></div>
+          <div className="listResult">
+            {SearchItemData.map((item, index) => (
+              <SearchItem key={index} item={item} />
+            ))}
+          </div>
         </div>
       </div>
     </div>
