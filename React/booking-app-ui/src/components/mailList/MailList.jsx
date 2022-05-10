@@ -4,7 +4,7 @@ import "./MailList.css";
 const MailList = () => {
   return (
     <div className="mail">
-      <div class="mailContainer">
+      <div className="mailContainer">
         <h2 className="mailTitle">Save time, save money!</h2>
         <p className="mailDesc">Sign up and we'll send the best deals to you</p>
 
@@ -13,7 +13,7 @@ const MailList = () => {
           <button>Subscribe</button>
         </div>
         <div className="mailradio">
-          <label class="mail-checkbox">
+          <label className="mail-checkbox">
             <input type="checkbox" name="checkbox" />
             Send me a link to get the FREE Booking.com app!
           </label>

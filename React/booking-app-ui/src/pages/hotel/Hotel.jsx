@@ -3,7 +3,12 @@ import "./Hotel.css";
 import Navbar from "../../components/navbar/Navbar";
 import Header from "../../components/header/Header";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCircleArrowLeft,
+  faCircleArrowRight,
+  faCircleXmark,
+  faLocationDot,
+} from "@fortawesome/free-solid-svg-icons";
 import { HotelImageData as photos } from "../../data/HotelImageData";
 import MailList from "../../components/mailList/MailList";
 import Footer from "../../components/footer/Footer";
@@ -15,6 +20,18 @@ const Hotel = () => {
   const handleOpen = (index) => {
     setSlideNumber(index);
     setOpen(true);
+  };
+
+  const handleMove = (direction) => {
+    let newSlideNumber;
+
+    if (direction === "l") {
+      newSlideNumber = slideNumber === 0 ? 5 : slideNumber - 1;
+    } else {
+      newSlideNumber = slideNumber === 5 ? 0 : slideNumber + 1;
+    }
+
+    setSlideNumber(newSlideNumber);
   };
 
   return (
@@ -35,7 +52,11 @@ const Hotel = () => {
               onClick={() => handleMove("l")}
             />
             <div className="sliderWrapper">
-              <img src={photos[slideNumber].src} alt="" className="sliderImg" />
+              <img
+                src={photos[slideNumber].image}
+                alt=""
+                className="sliderImg"
+              />
             </div>
             <FontAwesomeIcon
               icon={faCircleArrowRight}
@@ -62,9 +83,9 @@ const Hotel = () => {
           </span>
           <div className="hotelImages">
             {photos.map((photo, index) => (
-              <div className="hotelImgWrapper">
+              <div className="hotelImgWrapper" key={index}>
                 <img
-                  onClick={handleOpen(index)}
+                  onClick={() => handleOpen(index)}
                   src={photo.image}
                   alt="HotelImg"
                   className="hotelImg"
