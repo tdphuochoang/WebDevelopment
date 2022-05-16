@@ -12,7 +12,7 @@ const CreateExercise = () => {
   useEffect(() => {
     setUsers(["test user"]);
     setUserName("test user");
-  });
+  }, []);
 
   const onChangeUserName = (e) => {
     setUserName(e.target.value);
