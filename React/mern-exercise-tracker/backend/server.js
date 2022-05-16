@@ -28,6 +28,12 @@ connection.on("disconnected", () => {
   console.log("mongoDB disconnected!");
 });
 
+//Routes
+const exercisesRouter = require("./routes/exercises");
+const userRouter = require("./routes/users");
+app.use("/exercises", exercisesRouter);
+app.use("/users", userRouter);
+
 //Start the server
 app.listen(port, () => {
   connect();
