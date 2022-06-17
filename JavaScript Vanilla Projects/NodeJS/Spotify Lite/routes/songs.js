@@ -11,7 +11,7 @@ router.post("/", async (req, res) => {
     res
       .status(201)
       .json({ data: song, message: "Song is created successfully!" });
-  } catch {
+  } catch (err) {
     res.status(500).json(err);
   }
 });
