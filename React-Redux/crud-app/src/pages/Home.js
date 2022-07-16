@@ -9,7 +9,10 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { useDispatch, useSelector } from 'react-redux';
-import { loadUsers } from '../redux/action';
+import { deleteUser, loadUsers } from '../redux/action';
+import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
+import { useNavigate } from "react-router-dom";
 
 //Import table from MUI
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -54,13 +57,24 @@ const useStyles = makeStyles({
 const Home = () => {
   const classes = useStyles();
   let dispatch = useDispatch();
+  let navigate = useNavigate();
   const {users} = useSelector(state => state.data);
   useEffect(() => {
     dispatch(loadUsers())
   }, [])
 
+  const handleDelete = (id) => {
+    if(window.confirm("Are you sure you wanted to delete this user?")){
+      dispatch(deleteUser(id));
+      
+    }
+  }
   return (
     <div>
+      <div style = {{paddingTop: "10px"}}>
+      <Button variant = "contained" color = "primary" onClick = {() => navigate("/addUser")}>Add User</Button>
+      </div>
+      
       <TableContainer component={Paper}>
       <Table className = {classes.table} sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
@@ -81,7 +95,12 @@ const Home = () => {
               <StyledTableCell align="center">{user.email}</StyledTableCell>
               <StyledTableCell align="center">{(user.phone.split(" "))[0]}</StyledTableCell>
               <StyledTableCell align="center">{user.address.city}</StyledTableCell>
-              <StyledTableCell align="center"></StyledTableCell>
+              <StyledTableCell align="center">
+                <ButtonGroup variant="contained" aria-label="outlined primary button group">
+                  <Button style = {{marginRight: "5px"}} color = "secondary" onClick = {() => handleDelete(user.id)}>Delete</Button>
+                  <Button color = "primary">Edit</Button>              
+                </ButtonGroup>
+              </StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
