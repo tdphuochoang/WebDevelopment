@@ -93,12 +93,12 @@ const Home = () => {
                 {user.name}
               </StyledTableCell>
               <StyledTableCell align="center">{user.email}</StyledTableCell>
-              <StyledTableCell align="center">{(user.phone.split(" "))[0]}</StyledTableCell>
+              <StyledTableCell align="center">{(user.phone)}</StyledTableCell>
               <StyledTableCell align="center">{user.address.city}</StyledTableCell>
               <StyledTableCell align="center">
                 <ButtonGroup variant="contained" aria-label="outlined primary button group">
                   <Button style = {{marginRight: "5px"}} color = "secondary" onClick = {() => handleDelete(user.id)}>Delete</Button>
-                  <Button color = "primary">Edit</Button>              
+                  <Button color = "primary" onClick = {() => navigate(`/editUser/${user.id}`)}>Edit</Button>              
                 </ButtonGroup>
               </StyledTableCell>
             </StyledTableRow>
