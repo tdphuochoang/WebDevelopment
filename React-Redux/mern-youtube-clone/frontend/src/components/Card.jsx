@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { format } from "timeago.js";
+import axios from "axios";
 
 const Container = styled.div`
 	width: ${(props) => (props.type === "sm" ? "420px" : "360px")};
@@ -50,23 +52,30 @@ const Info = styled.div`
 	color: ${({ theme }) => theme.textSoft};
 `;
 
-const Card = ({ type }) => {
+const Card = ({ type, video }) => {
+	const [channel, setChannel] = useState({});
+
+	useEffect(() => {
+		const fetchChannel = async () => {
+			const res = await axios.get(`/users/find/${video.userId}`);
+			setChannel(res.data);
+		};
+		fetchChannel();
+	}, [video.userId]);
+
+	console.log(channel);
 	return (
 		<Link to="/video/test" style={{ textDecoration: "none" }}>
 			<Container type={type}>
-				<Image
-					type={type}
-					src="https://i.ytimg.com/vi/qSDYqMs09-I/maxresdefault.jpg"
-				/>
+				<Image type={type} src={video.imgUrl} />
 				<Detail type={type}>
-					<ChannelImage
-						type={type}
-						src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjQzRjShGCJzETBLkG1qByrXjy9v2asoBenw&usqp=CAU"
-					/>
+					<ChannelImage type={type} src={channel.img} />
 					<Texts>
-						<Title>How to Boom Boom Boom!</Title>
-						<ChannelName>anh James Vlog</ChannelName>
-						<Info>123,456 views - 1 day ago</Info>
+						<Title>{video.title}</Title>
+						<ChannelName>{channel.name}</ChannelName>
+						<Info>
+							{video.views} views - {format(video.createdAt)}
+						</Info>
 					</Texts>
 				</Detail>
 			</Container>
