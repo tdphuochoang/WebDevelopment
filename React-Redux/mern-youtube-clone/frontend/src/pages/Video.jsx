@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
 import ThumbDownOffAltOutlinedIcon from "@mui/icons-material/ThumbDownOffAltOutlined";
+import ThumbDownIcon from "@mui/icons-material/ThumbDown";
+import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import ReplyOutlinedIcon from "@mui/icons-material/ReplyOutlined";
 import AddTaskOutlinedIcon from "@mui/icons-material/AddTaskOutlined";
 import Comments from "../components/Comments";
 import Card from "../components/Card";
+import { useSelector, useDispatch } from "react-redux";
+import { useLocation } from "react-router-dom";
+import axios from "axios";
+import { dislike, fetchSuccess, like } from "../redux/videoSlice";
+import { format } from "timeago.js";
 
 const Container = styled.div`
 	display: flex;
@@ -106,60 +113,99 @@ const Subscribe = styled.button`
 `;
 
 const Video = () => {
+	const { currentUser } = useSelector((state) => state.user);
+	const { currentVideo } = useSelector((state) => state.video);
+	const dispatch = useDispatch();
+
+	const path = useLocation().pathname.split("/")[2];
+	const [channel, setChannel] = useState({});
+
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const videoRes = await axios.get(`/videos/find/${path}`);
+				const channelRes = await axios.get(
+					`/users/find/${videoRes.data.userId}`
+				);
+				setChannel(channelRes.data);
+				dispatch(fetchSuccess(videoRes.data));
+			} catch (err) {}
+		};
+		fetchData();
+	}, [path, dispatch]);
+
+	const handleLike = async () => {
+		await axios.put(`/users/like/${currentVideo._id}`);
+		dispatch(like(currentUser._id));
+	};
+
+	const handleDislike = async () => {
+		await axios.put(`/users/dislike/${currentVideo._id}`);
+		dispatch(dislike(currentUser._id));
+	};
+
 	return (
 		<Container>
-			<Content>
-				<VideoWrapper>
-					<iframe
-						width="100%"
-						height="560"
-						src="https://www.youtube.com/embed/Prv3wl3X9O4"
-						title="YouTube video player"
-						frameborder="0"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-						allowfullscreen
-					></iframe>
-				</VideoWrapper>
-				<Title>How to Boom Boom Boom!</Title>
-				<Details>
-					<Info>123,456 views - July 23rd, 2022</Info>
-					<Buttons>
-						<Button>
-							<ThumbUpOutlinedIcon /> 123
-						</Button>
-						<Button>
-							<ThumbDownOffAltOutlinedIcon /> Dislike
-						</Button>
-						<Button>
-							<ReplyOutlinedIcon /> Share
-						</Button>
-						<Button>
-							<AddTaskOutlinedIcon /> Save
-						</Button>
-					</Buttons>
-				</Details>
-				<Hr />
-				<Channel>
-					<ChannelInfo>
-						<Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjQzRjShGCJzETBLkG1qByrXjy9v2asoBenw&usqp=CAU" />
-						<ChannelDetail>
-							<ChannelName>anh James Vlog</ChannelName>
-							<ChannelCounter>200k subscribers</ChannelCounter>
-							<Description>
-								Hi guys! My name is James. I'm the master in the Boom Boom Boom
-								art and skills. Every morning, I ask the Boom Boom God how to
-								get my Boom Boom techniques better and he finally answered me.
-								In this video, I will teach everyone the true art of Boom Boom
-								so lets sing with me!
-							</Description>
-						</ChannelDetail>
-					</ChannelInfo>
-					<Subscribe>SUBSCRIBE</Subscribe>
-				</Channel>
-				<Hr />
-				<Comments />
-			</Content>
-			<Recommendation>
+			{currentVideo && (
+				<Content>
+					<VideoWrapper>
+						<iframe
+							width="100%"
+							height="560"
+							src="https://www.youtube.com/embed/Prv3wl3X9O4"
+							title="YouTube video player"
+							frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen
+						></iframe>
+					</VideoWrapper>
+					<Title>{currentVideo.title}</Title>
+					<Details>
+						<Info>
+							{currentVideo.views} views - {format(currentVideo.createdAt)}
+						</Info>
+						<Buttons>
+							<Button onClick={handleLike}>
+								{currentVideo.likes?.includes(currentUser._id) ? (
+									<ThumbUpIcon />
+								) : (
+									<ThumbUpOutlinedIcon />
+								)}{" "}
+								{currentVideo.likes?.length}
+							</Button>
+							<Button onClick={handleDislike}>
+								{currentVideo.dislikes?.includes(currentUser._id) ? (
+									<ThumbDownIcon />
+								) : (
+									<ThumbDownOffAltOutlinedIcon />
+								)}{" "}
+								Dislike
+							</Button>
+							<Button>
+								<ReplyOutlinedIcon /> Share
+							</Button>
+							<Button>
+								<AddTaskOutlinedIcon /> Save
+							</Button>
+						</Buttons>
+					</Details>
+					<Hr />
+					<Channel>
+						<ChannelInfo>
+							<Image src={channel.img} />
+							<ChannelDetail>
+								<ChannelName>{channel.name}</ChannelName>
+								<ChannelCounter>{channel.subscribers}</ChannelCounter>
+								<Description>{currentVideo.desc}</Description>
+							</ChannelDetail>
+						</ChannelInfo>
+						<Subscribe>SUBSCRIBE</Subscribe>
+					</Channel>
+					<Hr />
+					<Comments />
+				</Content>
+			)}
+			{/* <Recommendation>
 				<Card type="sm" />
 				<Card type="sm" />
 				<Card type="sm" />
@@ -170,7 +216,7 @@ const Video = () => {
 				<Card type="sm" />
 				<Card type="sm" />
 				<Card type="sm" />
-			</Recommendation>
+			</Recommendation> */}
 		</Container>
 	);
 };
