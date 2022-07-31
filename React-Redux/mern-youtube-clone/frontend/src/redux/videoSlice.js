@@ -27,7 +27,8 @@ export const videoSlice = createSlice({
 				state.currentVideo.dislikes.splice(
 					state.currentVideo.dislikes.findIndex(
 						(userId) => userId === action.payload
-					)
+					),
+					1
 				);
 			}
 		},
@@ -37,7 +38,8 @@ export const videoSlice = createSlice({
 				state.currentVideo.likes.splice(
 					state.currentVideo.likes.findIndex(
 						(userId) => userId === action.payload
-					)
+					),
+					1
 				);
 			}
 		},
