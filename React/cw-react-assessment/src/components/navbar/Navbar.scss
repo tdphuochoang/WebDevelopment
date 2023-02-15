@@ -1,0 +1,14 @@
+.navContainer {
+	height: 20vh;
+
+	.logoContainer {
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		img {
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+}
